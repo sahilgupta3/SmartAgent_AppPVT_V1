@@ -1,0 +1,10 @@
+{
+	"serviceName": "tier3",
+	"port": "3003",
+	"btList": [
+		{"methodName": "{ALL}",
+		 "httpRequests": [
+		 	{"callURL": "{ALL}", "port": "3004"}
+		 ]}
+	]
+}

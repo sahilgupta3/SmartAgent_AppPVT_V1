@@ -1,0 +1,45 @@
+{
+	"serviceName": "tier2",
+	"port": "3002",
+	"btList": [
+		{"methodName": "/login",
+		 "httpRequests": [
+			{"callURL": "/auth", "port": "3005"}
+		 ]},
+		 {"methodName": "/catalog/browse",
+		 "httpRequests": [
+			{"callURL": "/auth", "port": "3005"},
+			{"callURL": "/catalog/browse", "port": "3003"}
+		 ]},
+		 {"methodName": "/catalog/search",
+		 "httpRequests": [
+			{"callURL": "/auth", "port": "3005"},
+			{"callURL": "/catalog/search", "port": "3003"}
+		 ]},
+		 {"methodName": "/catalog/viewItem",
+		 "httpRequests": [
+			{"callURL": "/auth", "port": "3005"},
+			{"callURL": "/catalog/viewItem", "port": "3003"}
+		 ]},
+		 {"methodName": "/mycart/addToCart",
+		 "httpRequests": [
+			{"callURL": "/auth", "port": "3005"},
+			{"callURL": "/mycart/addToCart", "port": "3003"}
+		 ]},
+		 {"methodName": "/mycart/viewCart",
+		 "httpRequests": [
+			{"callURL": "/auth", "port": "3005"},
+			{"callURL": "/mycart/viewCart", "port": "3003"}
+		 ]},
+		 {"methodName": "/mycart/removeFromCart",
+		 "httpRequests": [
+			{"callURL": "/auth", "port": "3005"},
+			{"callURL": "/mycart/removeFromCart", "port": "3003"}
+		 ]},
+		 {"methodName": "/mycart/checkout",
+		 "httpRequests": [
+			{"callURL": "/auth", "port": "3005"},
+			{"callURL": "/mycart/checkout", "port": "3003"}
+		 ]}
+	]
+}

@@ -1,0 +1,53 @@
+{
+	"serviceName": "tier1",
+	"port": "3001",
+	"btList": [
+		{"methodName": "/login/{INT}",
+		 "httpRequests": [
+		 	{"callURL": "/login", "port": "3002"}
+		 ]},
+		 {"methodName": "/web-api/catalog/browse",
+		 "httpRequests": [
+		 	{"callURL": "/catalog/browse", "port": "3002"}
+		 ]},
+		 {"methodName": "/web-api/catalog/search",
+		 "httpRequests": [
+		 	{"callURL": "/catalog/search", "port": "3002"}
+		 ]},
+		 {"methodName": "/web-api/catalog/viewItem",
+		 "httpRequests": [
+		 	{"callURL": "/catalog/viewItem", "port": "3002"}
+		 ]},
+		 {"methodName": "/web-api/mycart/addToCart",
+		 "httpRequests": [
+		 	{"callURL": "/mycart/addToCart", "port": "3002"}
+		 ]},
+		 {"methodName": "/web-api/mycart/viewCart",
+		 "httpRequests": [
+		 	{"callURL": "/mycart/viewCart", "port": "3002"}
+		 ]},
+		 {"methodName": "/web-api/mycart/removeFromCart",
+		 "httpRequests": [
+		 	{"callURL": "/mycart/removeFromCart", "port": "3002"}
+		 ]},
+		 {"methodName": "/web-api/mycart/checkout",
+			"methodCalls": [
+				{"callName": "checkout", "minValue": 200, "maxValue": 1000}
+			],
+			"httpRequests": [
+				{"callURL": "/mycart/checkout", "port": "3002"}
+			]}
+	],
+	"loadConfig": {
+		"btList": [
+			{"callURL": "/login/{INT}", "port": "3001", "CPM": 120, "ErrorRate": 5, "headers":{"dataCenter": "WEST|CENTRAL|EAST"}},
+			{"callURL": "/web-api/catalog/browse", "port": "3001", "CPM": 40, "ErrorRate": 2, "headers":{"dataCenter": "WEST|CENTRAL|EAST"}},
+			{"callURL": "/web-api/catalog/search", "port": "3001", "CPM": 30, "ErrorRate": 2, "headers":{"dataCenter": "WEST|CENTRAL|EAST"}},
+			{"callURL": "/web-api/catalog/viewItem", "port": "3001", "CPM": 30, "ErrorRate": 7, "headers":{"dataCenter": "WEST|CENTRAL|EAST"}},
+			{"callURL": "/web-api/mycart/addToCart", "port": "3001", "CPM": 20, "ErrorRate": 3, "headers":{"dataCenter": "WEST|CENTRAL|EAST"}},
+			{"callURL": "/web-api/mycart/viewCart", "port": "3001", "CPM": 20, "ErrorRate": 2, "headers":{"dataCenter": "WEST|CENTRAL|EAST"}},
+			{"callURL": "/web-api/mycart/removeFromCart", "port": "3001", "CPM": 20, "ErrorRate": 1, "headers":{"dataCenter": "WEST|CENTRAL|EAST"}},
+			{"callURL": "/web-api/mycart/checkout", "port": "3001", "CPM": 30, "ErrorRate": 10, "headers":{"dataCenter": "WEST|CENTRAL|EAST"}}
+		]
+	}
+}

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+./stop.sh
+
+FILEOUT=out.log
+NULLOUT=/dev/null
+
+nohup java -javaagent:/home/ec2-user/agents/java-agent/javaagent.jar -Dappdynamics.agent.nodeName=Node1 -Dappdynamics.agent.tierName=Tier1  -DconfigFile=./config/tier1.json -jar ./java-services.jar > $FILEOUT 2>&1 &
+nohup java -javaagent:/home/ec2-user/agents/java-agent/javaagent.jar -Dappdynamics.agent.nodeName=Node2 -Dappdynamics.agent.tierName=Tier2  -DconfigFile=./config/tier2.json -jar ./java-services.jar > $FILEOUT 2>&1 &
+nohup java -javaagent:/home/ec2-user/agents/java-agent/javaagent.jar -Dappdynamics.agent.nodeName=Node3 -Dappdynamics.agent.tierName=Tier3  -DconfigFile=./config/tier3.json -jar ./java-services.jar > $FILEOUT 2>&1 &
+nohup java -javaagent:/home/ec2-user/agents/java-agent/javaagent.jar -Dappdynamics.agent.nodeName=Node4 -Dappdynamics.agent.tierName=Tier4  -DconfigFile=./config/tier4.json -jar ./java-services.jar > $FILEOUT 2>&1 &
+nohup java -javaagent:/home/ec2-user/agents/java-agent/javaagent.jar -Dappdynamics.agent.nodeName=Node5 -Dappdynamics.agent.tierName=Tier5  -DconfigFile=./config/tier5.json -jar ./java-services.jar > $FILEOUT 2>&1 &
+
+tail -f $FILEOUT
